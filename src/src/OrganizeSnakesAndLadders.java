@@ -65,6 +65,7 @@ public class OrganizeSnakesAndLadders {
         if (isStablePositionForCurrentThorwerReached(playerCordinatesOnBoardBeforeThrow, currentDiceThrowerPlayerIndex, currentDiceThrowByPlayer, snakeCordinatesMap, ladderCordinatesMap)){
             // update position to stable position
             updatedPlayerCordinatesOnBoardAfterThrow.put(currentDiceThrowerPlayerIndex, playerCordinatesOnBoardBeforeThrow.get(currentDiceThrowerPlayerIndex) + currentDiceThrowByPlayer);
+            playerCordinatesOnBoardBeforeThrow.put(currentDiceThrowerPlayerIndex, updatedPlayerCordinatesOnBoardAfterThrow.get(currentDiceThrowerPlayerIndex));
             return;
         }
 
