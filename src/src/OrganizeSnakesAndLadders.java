@@ -24,7 +24,7 @@ public class OrganizeSnakesAndLadders {
         while(!resultMap.get(1)){
 
             Integer currentDiceThrowByPlayer = generateRandomDiceThrow();
-            System.out.println(playersNameMap.get(currentDiceThrowerPlayerIndex) + " rolled a " + currentDiceThrowByPlayer + " and moved from " + playerCordinatesOnBoardBeforeThrow.get(currentDiceThrowerPlayerIndex) + " to " + updatedPlayerCordinatesOnBoardAfterThrow.get(currentDiceThrowerPlayerIndex) + "\n");
+            System.out.println(playersNameMap.get(currentDiceThrowerPlayerIndex) + " rolled a " + currentDiceThrowByPlayer + " and moved from " + playerCordinatesOnBoardBeforeThrow.get(currentDiceThrowerPlayerIndex) + " to " + updatedPlayerCordinatesOnBoardAfterThrow.get(currentDiceThrowerPlayerIndex));
 
 //            if(computeIsTheGameOver(updatedPlayerCordinatesOnBoardAfterThrow, currentDiceThrowerPlayerIndex)){
 //                isGameOver = true;
