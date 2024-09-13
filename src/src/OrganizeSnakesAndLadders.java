@@ -62,6 +62,10 @@ public class OrganizeSnakesAndLadders {
             return;
         }
 
+        if (isStablePositionForCurrentThorwerReached(playerCordinatesOnBoardBeforeThrow, currentDiceThrowerPlayerIndex, currentDiceThrowByPlayer, snakeCordinatesMap, ladderCordinatesMap)){
+            return;
+        }
+
 //        else if (hasSnakeBittenThePlayer(playerCordinatesOnBoardBeforeThrow, currentDiceThrowerPlayerIndex, currentDiceThrowByPlayer, snakeCordinatesMap)){
 //            // move the player to snakes Tail
 //        }
@@ -79,6 +83,21 @@ public class OrganizeSnakesAndLadders {
 
         computeCurrentPostionOnBoardAndCheckIfGameOver(playerCordinatesOnBoardBeforeThrow, updatedPlayerCordinatesOnBoardAfterThrow, currentDiceThrowerPlayerIndex, currentDiceThrowByPlayer, resultMap, snakeCordinatesMap, ladderCordinatesMap, playersNameMap);
 
+    }
+
+    private boolean isStablePositionForCurrentThorwerReached(Map<Integer, Integer> playerCordinatesOnBoardBeforeThrow, Integer currentDiceThrowerPlayerIndex, Integer currentDiceThrowByPlayer, Map<Integer, Integer[]> snakeCordinatesMap, Map<Integer, Integer[]> ladderCordinatesMap) {
+        Integer positionToJudge = playerCordinatesOnBoardBeforeThrow.get(currentDiceThrowerPlayerIndex) + currentDiceThrowByPlayer;
+        for (int x = 1; x<= snakeCordinatesMap.size(); x++){
+            if (Objects.equals(snakeCordinatesMap.get(x)[0], positionToJudge)){
+                return false;
+            }
+        }
+        for (int x = 1; x<= ladderCordinatesMap.size(); x++){
+            if (Objects.equals(ladderCordinatesMap.get(x)[0], positionToJudge)){
+                return false;
+            }
+        }
+        return true;
     }
 
     private void ifLadderReachedThePlayerThenUpdateThePlayerPosition(Map<Integer, Integer> playerCordinatesOnBoardBeforeThrow, Map<Integer, Integer> updatedPlayerCordinatesOnBoardAfterThrow, Integer currentDiceThrowerPlayerIndex, Integer currentDiceThrowByPlayer, Map<Integer, Integer[]> ladderCordinatesMap) {
