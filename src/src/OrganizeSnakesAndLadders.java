@@ -7,8 +7,6 @@ public class OrganizeSnakesAndLadders {
 
     public void organiseEvent(Map<Integer, Integer[]> snakeCordinatesMap, Map<Integer, Integer[]> ladderCordinatesMap, Map<Integer, String> playersNameMap){
 
-        Integer currentDiceThrowByPlayer = generateRandomDiceThrow();
-
 //        boolean isGameOver = false;
         Map<Integer, Boolean> resultMap = new HashMap<>();
         resultMap.put(1,false);
@@ -25,6 +23,7 @@ public class OrganizeSnakesAndLadders {
 
         while(!resultMap.get(1)){
 
+            Integer currentDiceThrowByPlayer = generateRandomDiceThrow();
             System.out.println(playersNameMap.get(currentDiceThrowerPlayerIndex) + " rolled a " + currentDiceThrowByPlayer + "and moved from " + playerCordinatesOnBoardBeforeThrow.get(currentDiceThrowerPlayerIndex) + "to" + updatedPlayerCordinatesOnBoardAfterThrow.get(currentDiceThrowerPlayerIndex));
 
 //            if(computeIsTheGameOver(updatedPlayerCordinatesOnBoardAfterThrow, currentDiceThrowerPlayerIndex)){
